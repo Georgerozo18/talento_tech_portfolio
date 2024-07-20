@@ -36,16 +36,20 @@ jobs:
           node-version: 20
           cache: 'npm'
       - name: Install dependencies
-        run: npm ci
+        run: |
+          cd talent_tech_portfolio_frontend
+          npm ci
       - name: Build
-        run: npm run build
+        run: |
+          cd talent_tech_portfolio_frontend
+          npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: './dist'
+          path: './talent_tech_portfolio_frontend/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
